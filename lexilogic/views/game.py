@@ -1,5 +1,6 @@
 import json
 
+
 def create_letter_box(json_string):
     try:
         data = json.loads(json_string)
@@ -68,6 +69,3 @@ def run():
         sorted_players = sorted(players_info, key=lambda x: x['Points'], reverse=True)
         for player_info in sorted_players:
             print(f"Username: {player_info['Username']} Points: {player_info['Points']}")
-
-if __name__ == "__main__":
-    run()

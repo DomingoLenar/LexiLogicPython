@@ -1,7 +1,5 @@
 import os
 import sys
-
-
 def run():
     while(True):
         os.system('clr||cls')

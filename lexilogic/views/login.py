@@ -1,15 +1,15 @@
 import getpass
 import os
 
-def run():
-    while(True):
+
+def login_view():
+    while (True):
         os.system('cls||clr')
         print("***** Log-In ****")
         username = input("Username: ")
         password = getpass.getpass("Password: ")
-        if(authenticate(username, password)):
+        if authenticate(username, password):
             break
-    
 
     print(f"Username: {username}")
     print(f"Password: [HIDDEN]")
@@ -19,10 +19,7 @@ def run():
 
     return True
 
+
 def authenticate(username: str, password: str):
     #Use DAL here to authenticate credentials and return boolean
     return True
-
-if __name__ == '__main__':
-    run()
-

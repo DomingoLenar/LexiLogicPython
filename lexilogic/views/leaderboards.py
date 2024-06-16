@@ -1,6 +1,3 @@
-import os
-import sys
-
 def get_leaderboard_data():
     # Function to fetch leaderboard data from a database or file
     leaderboard_data = [

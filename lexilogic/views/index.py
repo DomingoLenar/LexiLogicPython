@@ -1,28 +1,30 @@
 import os
 import sys
 import time
+import login
 
 
-def show():
+def index_view():
     print("*****************")
     print("1. Login")
     print("2. Exit")
     print("*****************")
 
-def run():
-    while(True):
+
+def index():
+    while (True):
         os.system('cls||clr')
-        show()
-        userChoice = input()
-        if(userChoice == "1"):
-            print("Valid")
+        index_view()
+        user_choice = input()
+        if user_choice == "1":
+            login.login_view()
             break
-        elif(userChoice == "2"):
+        elif user_choice == "2":
             sys.exit(1)
         else:
             print("Invalid Choice")
             time.sleep(0.3)
-    return "Log-In"
 
-if __name__ == '__main__':
-    run()
+
+if __name__ == "__main__":
+    index()

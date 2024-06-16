@@ -30,7 +30,7 @@ module org {
                         raises (org::amalgam::Utils::Exceptions::GameHistoryUnavailableException, org::amalgam::Utils::Exceptions::InGameException);
                 };
             };
-        };
+                    };
     };
 };
 

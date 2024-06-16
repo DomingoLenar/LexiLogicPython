@@ -2,7 +2,7 @@
 name = "2024-2-9329-finteam1-python"
 version = "0.1.0"
 description = ""
-authors = ["Lestat <2233915@slu.edul.ph>"]
+authors = ["Lestat <2233915@slu.edul.ph>. Lou <2233672@slu.edu.ph>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
