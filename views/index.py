@@ -12,7 +12,7 @@ def index_view():
 
 
 def index():
-    while (True):
+    while True:
         os.system('cls||clr')
         index_view()
         user_choice = input()

@@ -1,10 +1,10 @@
-import getpass
 import os
 from public import index as ORBConnection
 import PlayerCallbackImpl
 
+
 def login_view():
-    while (True):
+    while True:
         os.system('cls||clr')
         print("***** Log-In ****")
         username = input("Username: ")
@@ -35,4 +35,5 @@ def authenticate(username: str, password: str):
         player_service_stub.login(obj_ref_player_callback, password)
     except Exception as e:
         print(e)
-    else: return True
+    else:
+        return True
