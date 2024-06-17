@@ -8,7 +8,8 @@ def get_leaderboard_data():
     ]
     return leaderboard_data
 
-def display_leaderboard(leaderboard_data):
+
+def display_leaderboard_prompt(leaderboard_data):
     sorted_data = sorted(leaderboard_data, key=lambda entry: entry['score'], reverse=True)
 
     print("****** Leaderboard *******")
@@ -18,8 +19,7 @@ def display_leaderboard(leaderboard_data):
         print(f"{i:3d} | {entry['name']:10s} | {entry['score']}")
     print("************************")
 
-def run():
+
+def display_leaderboard():
     leaderboard_data = get_leaderboard_data()
-    display_leaderboard(leaderboard_data)
-
-
+    display_leaderboard_prompt(leaderboard_data)

@@ -1,3 +1,5 @@
+# Assets shared with members in other packages
+
 import os
 
 os.environ['ORBInitRef'] = 'NameService=corbaloc::corbaserver:2121/NameService'

@@ -2,7 +2,7 @@ import os
 import sys
 import time
 import login
-
+import main_menu
 
 def index_view():
     print("*****************")
@@ -17,7 +17,9 @@ def index():
         index_view()
         user_choice = input()
         if user_choice == "1":
-            login.login_view()
+            valid = login.login_view()
+            if valid:
+                main_menu.main_menu_prompt()
             break
         elif user_choice == "2":
             sys.exit(1)

@@ -1,6 +1,10 @@
 import os
 import sys
-def run():
+import game
+import match_history
+import leaderboards
+import profile
+def main_menu_prompt():
     while(True):
         os.system('clr||cls')
         print("****** Main Menu *******")
@@ -13,12 +17,12 @@ def run():
         choice = input("choice: ")
 
         if(choice == "1"):
-            return "play"
+            return game.start_game()
         elif(choice == "2"):
-            return "match_history"
+            return match_history.display_match_history()
         elif(choice == "3"):
-            return "leaderboards"
+            return leaderboards.display_leaderboard()
         elif(choice == "4"):
-            return "profile"
+            return profile.display_profile()
         elif(choice == "5"):
             sys.exit(1)

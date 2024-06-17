@@ -2,7 +2,7 @@ import os
 import getpass
 import time
 
-def run():
+def display_profile():
     while(True):
         os.system('cls||clr')
         username = os.environ.get("username")

@@ -38,7 +38,7 @@ def get_player_info(json_string):
         return None
 
 
-def run():
+def start_game():
     # Replace for real logic
     json_string = ('{"state":"game_started","room_id":0,"current_round":5,"seconds_round_duration":30,'
                    '"round_done":false,"capacity":2,"char_matrix":[["v","e","f","h","o"],["r","u","t","j","n"],["e",'
