@@ -2,22 +2,20 @@ import os
 from public import index as ORBConnection
 import PlayerCallbackImpl
 
-
-class Session:
-    # static var
-    CURRENT_USER = {
-        "username" : None
-    }
+CURRENT_USER = {
+    "username": None
+}
 
 
 def login_view():
+    global CURRENT_USER
     while True:
         os.system('cls||clr')
         print("***** Log-In ****")
         username = input("Username: ")
         password = input("Password: ")
         if authenticate(username, password):
-            Session.CURRENT_USER['username'] = username
+            CURRENT_USER['username'] = username
             break
 
     print(f"Username: {username}")
@@ -29,8 +27,6 @@ def login_view():
 
 
 def authenticate(username: str, password: str):
-    print(username)
-    print(password)
     orb = ORBConnection.orb_connection()
     nce = ORBConnection.get_nce(orb)
     player_service_stub = ORBConnection.get_player_service_stub(nce)
