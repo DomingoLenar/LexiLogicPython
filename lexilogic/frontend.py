@@ -4,6 +4,7 @@ import frontend.main_menu as main_menu
 import frontend.profile as profile
 import frontend.leaderboards as leaderboards
 
+
 def main():
     choice = menu.run()
     if choice == "Log-In":
