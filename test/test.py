@@ -8,6 +8,6 @@ servant_player_callback_impl = PlayerCallbackImpl.Player_Callback_Impl()
 servant_player_callback_impl.username = "Marven"
 poa = index.get_poa(orb)
 obj_ref_player_callback = poa.servant_to_reference(servant_player_callback_impl)
-print("obj_ref dir:", (obj_ref_player_callback.username))
+print("obj_ref dir:", (obj_ref_player_callback.Session))
 # pss.changeUsername("Dagul", "Lou")
 # pss.login(obj_ref_player_callback, "pass123")

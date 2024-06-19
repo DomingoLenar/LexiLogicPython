@@ -22,3 +22,7 @@ def display_leaderboard_prompt(leaderboard_list):
 def display_leaderboard():
     leaderboard_data = get_leaderboard_data()
     display_leaderboard_prompt(leaderboard_data)
+
+
+if __name__ == "__main__":
+    display_leaderboard()

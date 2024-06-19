@@ -4,6 +4,7 @@ import time
 import login
 import main_menu
 
+
 def index_view():
     print("*****************")
     print("1. Login")
