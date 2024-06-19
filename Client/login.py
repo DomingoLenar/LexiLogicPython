@@ -3,6 +3,13 @@ from public import index as ORBConnection
 import PlayerCallbackImpl
 
 
+class Session:
+    # static var
+    CURRENT_USER = {
+        "username" : None
+    }
+
+
 def login_view():
     while True:
         os.system('cls||clr')
@@ -10,12 +17,12 @@ def login_view():
         username = input("Username: ")
         password = input("Password: ")
         if authenticate(username, password):
+            Session.CURRENT_USER['username'] = username
             break
 
     print(f"Username: {username}")
     print(f"Password: [HIDDEN]")
 
-    #Insert logic to check if valid
     os.environ['username'] = username
 
     return True
