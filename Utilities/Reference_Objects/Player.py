@@ -1,42 +1,40 @@
-from collections import deque
+class Player:
+    def __init__(self, userID, username, password, lastLoggedIn):
+        self.userID = userID
+        self.username = username
+        self.password = password
+        self.lastLoggedIn = lastLoggedIn
 
-class PlayerGameDetail:
-    def __init__(self, username):
-        self._username = username
-        self._points = 0
-        self._words = deque()
-        self._duped_words = deque()
-        self._ready = False
+    @property
+    def userID(self):
+        return self._userID
 
-    # Getter methods
-    def get_duped_words(self):
-        return self._duped_words
+    @userID.setter
+    def userID(self, userID):
+        self._userID = userID
 
-    def get_username(self):
+    @property
+    def username(self):
         return self._username
 
-    def get_points(self):
-        return self._points
+    @username.setter
+    def username(self, username):
+        self._username = username
 
-    def get_words(self):
-        return self._words
+    @property
+    def password(self):
+        return self._password
 
-    def is_ready(self):
-        return self._ready
+    @password.setter
+    def password(self, password):
+        self._password = password
 
-    # Setter methods
-    def set_points(self, points):
-        self._points = points
+    @property
+    def lastLoggedIn(self):
+        return self._lastLoggedIn
 
-    def set_ready(self, ready):
-        self._ready = ready
+    @lastLoggedIn.setter
+    def lastLoggedIn(self, lastLoggedIn):
+        self._lastLoggedIn = lastLoggedIn
 
-    # Functions
-    def add_word(self, word):
-        self._words.append(word)
 
-    def add_duped_word(self, word):
-        self._duped_words.append(word)
-
-    def list_of_words_contains(self, word):
-        return word in self._words
