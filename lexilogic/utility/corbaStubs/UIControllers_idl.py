@@ -18,25 +18,25 @@ except NameError:
 #
 # Start of module "org"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
-_0_org = omniORB.openModule("lexilogic/utility/corbaModules.org", r"UIControllers.idl")
-_0_org__POA = omniORB.openModule("lexilogic/utility/corbaModules.org__POA", r"UIControllers.idl")
+__name__ = "lexilogic.utility.corbaModules.org"
+_0_org = omniORB.openModule("lexilogic.utility.corbaModules.org", r"UIControllers.idl")
+_0_org__POA = omniORB.openModule("lexilogic.utility.corbaModules.org__POA", r"UIControllers.idl")
 
 
 #
 # Start of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
-_0_org.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam", r"UIControllers.idl")
-_0_org__POA.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam", r"UIControllers.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
+_0_org.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam", r"UIControllers.idl")
+_0_org__POA.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam", r"UIControllers.idl")
 
 
 #
 # Start of module "org.amalgam.ControllerException"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.ControllerException"
-_0_org.amalgam.ControllerException = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.ControllerException", r"UIControllers.idl")
-_0_org__POA.amalgam.ControllerException = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.ControllerException", r"UIControllers.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.ControllerException"
+_0_org.amalgam.ControllerException = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.ControllerException", r"UIControllers.idl")
+_0_org__POA.amalgam.ControllerException = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.ControllerException", r"UIControllers.idl")
 
 
 # exception InvalidRequestException
@@ -57,15 +57,15 @@ del InvalidRequestException
 #
 # End of module "org.amalgam.ControllerException"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
 
 
 #
 # Start of module "org.amalgam.UIControllers"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.UIControllers"
-_0_org.amalgam.UIControllers = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.UIControllers", r"UIControllers.idl")
-_0_org__POA.amalgam.UIControllers = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.UIControllers", r"UIControllers.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.UIControllers"
+_0_org.amalgam.UIControllers = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.UIControllers", r"UIControllers.idl")
+_0_org__POA.amalgam.UIControllers = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.UIControllers", r"UIControllers.idl")
 
 
 # interface PlayerCallback
@@ -114,7 +114,7 @@ _0_org.amalgam.UIControllers._objref_PlayerCallback = _objref_PlayerCallback
 del PlayerCallback, _objref_PlayerCallback
 
 # PlayerCallback skeleton
-__name__ = "lexilogic/utility/corbaModules.org__POA.amalgam.UIControllers"
+__name__ = "lexilogic.utility.corbaModules.org__POA.amalgam.UIControllers"
 class PlayerCallback (PortableServer.Servant):
     _NP_RepositoryId = _0_org.amalgam.UIControllers.PlayerCallback._NP_RepositoryId
 
@@ -125,25 +125,25 @@ PlayerCallback._omni_skeleton = PlayerCallback
 _0_org__POA.amalgam.UIControllers.PlayerCallback = PlayerCallback
 omniORB.registerSkeleton(PlayerCallback._NP_RepositoryId, PlayerCallback)
 del PlayerCallback
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.UIControllers"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.UIControllers"
 
 #
 # End of module "org.amalgam.UIControllers"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
 
 
 #
 # End of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
+__name__ = "lexilogic.utility.corbaModules.org"
 
 
 #
 # End of module "org"
 #
-__name__ = "lexilogic/utility/corbaStubs.UIControllers_idl"
+__name__ = "lexilogic.utility.corbaStubs.UIControllers_idl"
 
-_exported_modules = ( "lexilogic/utility/corbaModules.org", "lexilogic/utility/corbaModules.org.amalgam", "lexilogic/utility/corbaModules.org.amalgam.ControllerException", "lexilogic/utility/corbaModules.org.amalgam.UIControllers")
+_exported_modules = ( "lexilogic.utility.corbaModules.org", "lexilogic.utility.corbaModules.org.amalgam", "lexilogic.utility.corbaModules.org.amalgam.ControllerException", "lexilogic.utility.corbaModules.org.amalgam.UIControllers")
 
 # The end.

@@ -17,56 +17,56 @@ except NameError:
 
 # #include "ProgramUtilities.idl"
 import lexilogic.utility.corbaStubs.ProgramUtilities_idl
-_0_org = omniORB.openModule("lexilogic/utility/corbaModules.org")
-_0_org__POA = omniORB.openModule("lexilogic/utility/corbaModules.org__POA")
-_0_org.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam")
-_0_org__POA.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam")
-_0_org.amalgam.Utils = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Utils")
-_0_org__POA.amalgam.Utils = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Utils")
-_0_org.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Utils.Exceptions")
-_0_org__POA.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Utils.Exceptions")
+_0_org = omniORB.openModule("lexilogic.utility.corbaModules.org")
+_0_org__POA = omniORB.openModule("lexilogic.utility.corbaModules.org__POA")
+_0_org.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam")
+_0_org__POA.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam")
+_0_org.amalgam.Utils = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Utils")
+_0_org__POA.amalgam.Utils = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Utils")
+_0_org.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Utils.Exceptions")
+_0_org__POA.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Utils.Exceptions")
 
 # #include "UIControllers.idl"
 import lexilogic.utility.corbaStubs.UIControllers_idl
-_0_org = omniORB.openModule("lexilogic/utility/corbaModules.org")
-_0_org__POA = omniORB.openModule("lexilogic/utility/corbaModules.org__POA")
-_0_org.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam")
-_0_org__POA.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam")
-_0_org.amalgam.ControllerException = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.ControllerException")
-_0_org__POA.amalgam.ControllerException = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.ControllerException")
-_0_org.amalgam.UIControllers = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.UIControllers")
-_0_org__POA.amalgam.UIControllers = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.UIControllers")
+_0_org = omniORB.openModule("lexilogic.utility.corbaModules.org")
+_0_org__POA = omniORB.openModule("lexilogic.utility.corbaModules.org__POA")
+_0_org.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam")
+_0_org__POA.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam")
+_0_org.amalgam.ControllerException = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.ControllerException")
+_0_org__POA.amalgam.ControllerException = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.ControllerException")
+_0_org.amalgam.UIControllers = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.UIControllers")
+_0_org__POA.amalgam.UIControllers = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.UIControllers")
 
 #
 # Start of module "org"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
-_0_org = omniORB.openModule("lexilogic/utility/corbaModules.org", r"GameService.idl")
-_0_org__POA = omniORB.openModule("lexilogic/utility/corbaModules.org__POA", r"GameService.idl")
+__name__ = "lexilogic.utility.corbaModules.org"
+_0_org = omniORB.openModule("lexilogic.utility.corbaModules.org", r"GameService.idl")
+_0_org__POA = omniORB.openModule("lexilogic.utility.corbaModules.org__POA", r"GameService.idl")
 
 
 #
 # Start of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
-_0_org.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam", r"GameService.idl")
-_0_org__POA.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam", r"GameService.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
+_0_org.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam", r"GameService.idl")
+_0_org__POA.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam", r"GameService.idl")
 
 
 #
 # Start of module "org.amalgam.Service"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Service"
-_0_org.amalgam.Service = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Service", r"GameService.idl")
-_0_org__POA.amalgam.Service = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Service", r"GameService.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Service"
+_0_org.amalgam.Service = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Service", r"GameService.idl")
+_0_org__POA.amalgam.Service = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Service", r"GameService.idl")
 
 
 #
 # Start of module "org.amalgam.Service.GameServiceModule"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Service.GameServiceModule"
-_0_org.amalgam.Service.GameServiceModule = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Service.GameServiceModule", r"GameService.idl")
-_0_org__POA.amalgam.Service.GameServiceModule = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Service.GameServiceModule", r"GameService.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Service.GameServiceModule"
+_0_org.amalgam.Service.GameServiceModule = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Service.GameServiceModule", r"GameService.idl")
+_0_org__POA.amalgam.Service.GameServiceModule = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Service.GameServiceModule", r"GameService.idl")
 
 
 # interface GameService
@@ -153,7 +153,7 @@ _0_org.amalgam.Service.GameServiceModule._objref_GameService = _objref_GameServi
 del GameService, _objref_GameService
 
 # GameService skeleton
-__name__ = "lexilogic/utility/corbaModules.org__POA.amalgam.Service.GameServiceModule"
+__name__ = "lexilogic.utility.corbaModules.org__POA.amalgam.Service.GameServiceModule"
 class GameService (PortableServer.Servant):
     _NP_RepositoryId = _0_org.amalgam.Service.GameServiceModule.GameService._NP_RepositoryId
 
@@ -164,31 +164,31 @@ GameService._omni_skeleton = GameService
 _0_org__POA.amalgam.Service.GameServiceModule.GameService = GameService
 omniORB.registerSkeleton(GameService._NP_RepositoryId, GameService)
 del GameService
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Service.GameServiceModule"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Service.GameServiceModule"
 
 #
 # End of module "org.amalgam.Service.GameServiceModule"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Service"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Service"
 
 
 #
 # End of module "org.amalgam.Service"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
 
 
 #
 # End of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
+__name__ = "lexilogic.utility.corbaModules.org"
 
 
 #
 # End of module "org"
 #
-__name__ = "lexilogic/utility/corbaStubs.GameService_idl"
+__name__ = "lexilogic.utility.corbaStubs.GameService_idl"
 
-_exported_modules = ( "lexilogic/utility/corbaModules.org", "lexilogic/utility/corbaModules.org.amalgam", "lexilogic/utility/corbaModules.org.amalgam.Service", "lexilogic/utility/corbaModules.org.amalgam.Service.GameServiceModule")
+_exported_modules = ( "lexilogic.utility.corbaModules.org", "lexilogic.utility.corbaModules.org.amalgam", "lexilogic.utility.corbaModules.org.amalgam.Service", "lexilogic.utility.corbaModules.org.amalgam.Service.GameServiceModule")
 
 # The end.

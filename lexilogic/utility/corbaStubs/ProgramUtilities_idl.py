@@ -18,33 +18,33 @@ except NameError:
 #
 # Start of module "org"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
-_0_org = omniORB.openModule("lexilogic/utility/corbaModules.org", r"ProgramUtilities.idl")
-_0_org__POA = omniORB.openModule("lexilogic/utility/corbaModules.org__POA", r"ProgramUtilities.idl")
+__name__ = "lexilogic.utility.corbaModules.org"
+_0_org = omniORB.openModule("lexilogic.utility.corbaModules.org", r"ProgramUtilities.idl")
+_0_org__POA = omniORB.openModule("lexilogic.utility.corbaModules.org__POA", r"ProgramUtilities.idl")
 
 
 #
 # Start of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
-_0_org.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam", r"ProgramUtilities.idl")
-_0_org__POA.amalgam = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam", r"ProgramUtilities.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
+_0_org.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam", r"ProgramUtilities.idl")
+_0_org__POA.amalgam = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam", r"ProgramUtilities.idl")
 
 
 #
 # Start of module "org.amalgam.Utils"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Utils"
-_0_org.amalgam.Utils = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Utils", r"ProgramUtilities.idl")
-_0_org__POA.amalgam.Utils = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Utils", r"ProgramUtilities.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Utils"
+_0_org.amalgam.Utils = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Utils", r"ProgramUtilities.idl")
+_0_org__POA.amalgam.Utils = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Utils", r"ProgramUtilities.idl")
 
 
 #
 # Start of module "org.amalgam.Utils.Exceptions"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Utils.Exceptions"
-_0_org.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic/utility/corbaModules.org.amalgam.Utils.Exceptions", r"ProgramUtilities.idl")
-_0_org__POA.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic/utility/corbaModules.org__POA.amalgam.Utils.Exceptions", r"ProgramUtilities.idl")
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Utils.Exceptions"
+_0_org.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic.utility.corbaModules.org.amalgam.Utils.Exceptions", r"ProgramUtilities.idl")
+_0_org__POA.amalgam.Utils.Exceptions = omniORB.openModule("lexilogic.utility.corbaModules.org__POA.amalgam.Utils.Exceptions", r"ProgramUtilities.idl")
 
 
 # exception DuplicatePlayerIDException
@@ -680,26 +680,26 @@ del WinnerDoesNotExistException
 #
 # End of module "org.amalgam.Utils.Exceptions"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam.Utils"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam.Utils"
 
 
 #
 # End of module "org.amalgam.Utils"
 #
-__name__ = "lexilogic/utility/corbaModules.org.amalgam"
+__name__ = "lexilogic.utility.corbaModules.org.amalgam"
 
 
 #
 # End of module "org.amalgam"
 #
-__name__ = "lexilogic/utility/corbaModules.org"
+__name__ = "lexilogic.utility.corbaModules.org"
 
 
 #
 # End of module "org"
 #
-__name__ = "lexilogic/utility/corbaStubs.ProgramUtilities_idl"
+__name__ = "lexilogic.utility.corbaStubs.ProgramUtilities_idl"
 
-_exported_modules = ( "lexilogic/utility/corbaModules.org", "lexilogic/utility/corbaModules.org.amalgam", "lexilogic/utility/corbaModules.org.amalgam.Utils", "lexilogic/utility/corbaModules.org.amalgam.Utils.Exceptions")
+_exported_modules = ( "lexilogic.utility.corbaModules.org", "lexilogic.utility.corbaModules.org.amalgam", "lexilogic.utility.corbaModules.org.amalgam.Utils", "lexilogic.utility.corbaModules.org.amalgam.Utils.Exceptions")
 
 # The end.
