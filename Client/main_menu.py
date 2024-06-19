@@ -19,7 +19,7 @@ def main_menu_prompt():
         choice = input("choice: ")
 
         if choice == "1":
-            return game.start_game()
+            return game.find_match()
         elif choice == "2":
             return match_history.display_match_history()
         elif choice == "3":

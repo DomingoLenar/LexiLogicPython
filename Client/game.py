@@ -1,4 +1,6 @@
 import json
+from public import index as ORBConnection
+import login
 
 
 def create_letter_box(json_string):
@@ -69,3 +71,11 @@ def start_game():
         sorted_players = sorted(players_info, key=lambda x: x['Points'], reverse=True)
         for player_info in sorted_players:
             print(f"Username: {player_info['Username']} Points: {player_info['Points']}")
+
+
+def find_match():
+    print("FINDING MATCH")
+    orb = ORBConnection.orb_connection()
+    nce = ORBConnection.get_nce(orb)
+    game_service_stub = ORBConnection.get_game_service_stub(nce)
+    game_service_stub.matchMake(login.CURRENT_USER['player_callback'])
