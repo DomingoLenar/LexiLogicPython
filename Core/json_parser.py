@@ -1,21 +1,38 @@
 import json
 from Utilities.Reference_Objects import LeaderBoard
+from Utilities.Reference_Objects import Lobby
 
 
 def parse_leaderboard_json_string(json_string):
     data = json.loads(json_string)
-    leaderboard_entries = data['leaderboard']
+    leaderboard_json_string = data['leaderboard']
     leaderboard_list = []
-    for idx, entry in enumerate(leaderboard_entries, start=1):
+    for idx, leaderboard in enumerate(leaderboard_json_string, start=1):
         leaderboard_item = LeaderBoard.LeaderBoard(
             leader_board_id=idx,
-            username=entry['username'],
-            points=entry['pts'],
-            rank=entry['rank']
+            username=leaderboard['username'],
+            points=leaderboard['pts'],
+            rank=leaderboard['rank']
         )
         leaderboard_list.append(leaderboard_item)
 
     return leaderboard_list
+
+
+def parse_match_history_json_string(json_string):
+    data = json.loads(json_string)
+    lobby_json_string = data['lobby']
+    lobby_list = []
+    for idx, lobby in enumerate(lobby_json_string, start=1):
+        lobby_item = Lobby.Lobby(
+            lobby_id=lobby['lobbyID'],
+            winner=lobby['winner'],
+            winner_score=lobby['score']
+        )
+
+        lobby_list.append(lobby_item)
+
+    return lobby_list
 
 
 if __name__ == '__main__':
