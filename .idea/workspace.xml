@@ -4,9 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906c167f-7f2b-4c6d-9803-bdf056d7c4e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/lexilogic/frontend.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexilogic/frontend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexilogic/frontend/login/login.py" beforeDir="false" />
+    <list default="true" id="906c167f-7f2b-4c6d-9803-bdf056d7c4e2" name="Changes" comment="+">
+      <change afterPath="$PROJECT_DIR$/compiled_corba/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/ControllerException/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/GameServiceModule/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/PlayerServiceModule/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/UIControllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Utils/Exceptions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/ControllerException/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/GameServiceModule/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/PlayerServiceModule/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/UIControllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Utils/Exceptions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/GameService_idl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/PlayerService_idl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/ProgramUtilities_idl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/UIControllers_idl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lexilogic/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +48,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabDefaultAccount">
+    <option name="defaultAccountId" value="c75962f4-71ac-42d3-85e0-051b73b52e9a" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -38,12 +66,12 @@
     "Python.login (1).executor": "Run",
     "Python.login.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/python-modules/omniORB-4.3.2/lib/python",
+    "git-widget-placeholder": "dev/lestat/idl-script",
+    "last_opened_file_path": "C:/Users/mlest/PycharmProjects/2024-2_9329_finteam1_python",
     "settings.editor.selected.configurable": "reference.idesettings.debugger.python"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.login (1)">
+  <component name="RunManager" selected="Python.test">
     <configuration name="corba" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2024-2_9329_finteam1_python" />
       <option name="ENV_FILES" value="" />
@@ -133,14 +161,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2024-2_9329_finteam1_python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lexilogic" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lexilogic/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.corba" />
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.frontend" />
       <item itemvalue="Python.login (1)" />
       <item itemvalue="Python.login" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.login (1)" />
         <item itemvalue="Python.frontend" />
         <item itemvalue="Python.login" />
@@ -163,6 +215,30 @@
       <option name="presentableId" value="Default" />
       <updated>1717855700339</updated>
     </task>
+    <task id="LOCAL-00001" summary="+">
+      <option name="closed" value="true" />
+      <created>1718894029903</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894029903</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+" />
+    <option name="LAST_COMMIT_MESSAGE" value="+" />
   </component>
 </project>
