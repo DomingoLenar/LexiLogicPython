@@ -1,9 +1,9 @@
-import compiled_corba.utility.corbaModules.org__POA
+import utility.corbaModules.org__POA
 from lexilogic.update_dispatcher import UpdateDispatcher
-import compiled_corba.utility.corbaModules.org
+import utility.corbaModules.org
 
 
-class PlayerCallbackImpl(compiled_corba.utility.corbaModules.org__POA.amalgam.UIControllers.PlayerCallback):
+class PlayerCallbackImpl(utility.corbaModules.org__POA.amalgam.UIControllers.PlayerCallback):
     username = ""
     update_dispatch = UpdateDispatcher
 
@@ -25,5 +25,5 @@ class PlayerCallbackImpl(compiled_corba.utility.corbaModules.org__POA.amalgam.UI
 if __name__ == "__main__":
     player_callback_impl = PlayerCallbackImpl()
     print(dir(player_callback_impl))
-    print(dir(compiled_corba.utility.corbaModules.org.amalgam.UIControllers.PlayerCallback))
-    print(dir(compiled_corba.utility.corbaModules.org__POA.amalgam.UIControllers.PlayerCallback))
+    print(dir(utility.corbaModules.org.amalgam.UIControllers.PlayerCallback))
+    print(dir(utility.corbaModules.org__POA.amalgam.UIControllers.PlayerCallback))

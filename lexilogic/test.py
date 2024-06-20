@@ -6,7 +6,7 @@ os.environ['ORBInitRef'] = 'NameService=corbaloc::corbaserver:2121/NameService'
 import sys
 from omniORB import CORBA
 import CosNaming, PortableServer
-from compiled_corba.utility.corbaModules.org.amalgam import Service  # REQUIRED
+from utility.corbaModules.org.amalgam import Service# REQUIRED
 from callback_impl import PlayerCallbackImpl
 
 
@@ -41,6 +41,7 @@ def get_poa(orb):
 
 if __name__ == "__main__":
     orb = orb_connection()
+    print("Retrieved Connection")
     retrieved_poa = get_poa(orb)
     nce = get_nce(orb)
     pss = get_player_service_stub(nce)
@@ -49,4 +50,8 @@ if __name__ == "__main__":
     callback = PlayerCallbackImpl()
     callback.set_username("Mark")
     password = "pass123"
-    pss.login(retrieved_poa.resolve_servant_to_reference(callback), password)
+    pss.login(retrieved_poa.servant_to_reference(callback), password)
+    print("Logged In")
+    print("Success")
+    pss.logout("Mark")
+    print("Logged Out")

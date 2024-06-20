@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="906c167f-7f2b-4c6d-9803-bdf056d7c4e2" name="Changes" comment="+">
-      <change afterPath="$PROJECT_DIR$/compiled_corba/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/ControllerException/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/GameServiceModule/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/PlayerServiceModule/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Service/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/UIControllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Utils/Exceptions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/Utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org/amalgam/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/ControllerException/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/GameServiceModule/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/PlayerServiceModule/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Service/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/UIControllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Utils/Exceptions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/Utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaModules/org__POA/amalgam/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/GameService_idl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/PlayerService_idl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/ProgramUtilities_idl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/UIControllers_idl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiled_corba/utility/corbaStubs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lexilogic/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corba_idl/BoggleApp/generate_python_classes.bat" beforeDir="false" afterPath="$PROJECT_DIR$/corba_idl/BoggleApp/generate_python_classes.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexilogic/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexilogic/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +24,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitLabDefaultAccount">
-    <option name="defaultAccountId" value="c75962f4-71ac-42d3-85e0-051b73b52e9a" />
-  </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPENED",
+    "assignee": {
+      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
+      "username": "GebreylIsaacRabang",
+      "fullname": "Gebreyl Isaac Rabang"
+    }
+  }
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "https://gitlab.com/2233915/2024-2_9329_finteam1_python.git",
+    "second": "ced29d39-eb7c-494a-b29d-345d957b8c8b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -59,18 +48,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.corba.executor": "Run",
-    "Python.frontend.executor": "Run",
-    "Python.login (1).executor": "Run",
-    "Python.login.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev/lestat/idl-script",
-    "last_opened_file_path": "C:/Users/mlest/PycharmProjects/2024-2_9329_finteam1_python",
-    "settings.editor.selected.configurable": "reference.idesettings.debugger.python"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.corba.executor&quot;: &quot;Run&quot;,
+    &quot;Python.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/lestat/idl-script&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mlest/PycharmProjects/2024-2_9329_finteam1_python&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.test">
     <configuration name="corba" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="2024-2_9329_finteam1_python" />
@@ -167,7 +157,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="PYTHONUNBUFFERED" value="1, PYTHONPATH=%PYTHONPATH%" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lexilogic" />
