@@ -1,6 +1,7 @@
 import os
-import getpass
+import login
 import time
+from public import index as ORBConnection
 
 
 def display_profile():
@@ -15,46 +16,65 @@ def display_profile():
         print("**********************")
         choice = input("Choice: ")
 
+        if choice == "1":
+            change_username()
+            break
+        elif choice == "2":
+            change_password()
+            break
+        elif choice == "3":
+            # go back
+            pass
+
 
 def change_password():
-    while (True):
+    while True:
         os.system('cls||clr')
         print("**** Change Password *******")
-        prev_pass = getpass.getpass("Old Password: ")
-        # add logic to validate if old_pass is correct 
-        valid = True
-        if (valid):
-            break
+        prev_pass = input("Old Password: ")
+        new_pass = input("New Password: ")
+        confirm_pass = input("Confirm Password: ")
 
-    while (True):
-        os.system('clr||cls')
-        print("**** Change Password *******")
-        new_pass = getpass.getpass("New Password: ")
-        confirmation = getpass.getpass("Confirm Password: ")
-        if (new_pass == confirmation):
-            break
+        if new_pass == confirm_pass:
+            if prev_pass == login.CURRENT_USER['password']:
+                try:
+                    orb = ORBConnection.orb_connection()
+                    nce = ORBConnection.get_nce(orb)
+                    player_service_stub = ORBConnection.get_player_service_stub(nce)
+                    player_service_stub.changePassword(login.CURRENT_USER['password'], new_pass)
+                except Exception as e:
+                    print(e)
+                break
+            else:
+                print("Old password do not match please try again")
         else:
-            print("Confirmation is not the same please enter again")
+            print("New password is not the same as confirm password")
             time.sleep(0.4)
+
+    print("Your password has been changed")
 
 
 def change_username():
-    while (True):
+    while True:
         os.system('cls||clr')
-        currentUsername = os.environ('username')
+        # currentUsername = os.environ.get('username')
         print("******* Change Username ********")
-        newUsername = input("Enter New Username: ")
-        if (not currentUsername == newUsername and check_username_existence(newUsername)):
-            #call dal to updater username in the database
+        new_username = input("Enter New Username: ")
+        if not login.CURRENT_USER['username'] == new_username and check_username_existence(new_username):
+            try:
+                orb = ORBConnection.orb_connection()
+                nce = ORBConnection.get_nce(orb)
+                player_service_stub = ORBConnection.get_player_service_stub(nce)
+                player_service_stub.changeUsername(login.CURRENT_USER['username'], new_username)
+            except Exception as e:
+                print(e)
             break
         else:
             print("Username is invalid, username already exists or is the same as the current username")
+
+    print("Your username has been changed")
 
 
 def check_username_existence(uname: str):
     #Use DAL to check if username is already taken
     return True
-
-
-def change_username():
-    print()
