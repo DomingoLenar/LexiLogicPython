@@ -35,6 +35,12 @@ def parse_match_history_json_string(json_string):
     return lobby_list
 
 
+def parse_match_making(match_status):
+    data = json.loads(match_status)
+    status = data['status']
+    return status
+
+
 if __name__ == '__main__':
     json_string = '{"object":"leaderboard","leaderboard":[{"username":"Lou","pts":1750,"rank":1},{"username":"Lenar","pts":1290,"rank":2},{"username":"Geo","pts":760,"rank":3},{"username":"Mark","pts":760,"rank":3},{"username":"Gebreyl","pts":730,"rank":5},{"username":"Marven","pts":640,"rank":6}]}'
     # json_string = "{"object":"leaderboard","leaderboard":[{"username":"Lou","pts":1750,"rank":1},{"username":"Lenar","pts":1290,"rank":2},{"username":"Geo","pts":760,"rank":3},{"username":"Mark","pts":760,"rank":3},{"username":"Gebreyl","pts":730,"rank":5},{"username":"Marven","pts":640,"rank":6}]}"
@@ -57,3 +63,21 @@ if __name__ == '__main__':
         print(item.get_username(), item.get_points(), item.get_rank())
     # json.dumps()
     # parse_json_string()
+
+
+def parse_game_room(game_room):
+    data = json.loads(game_room)
+    game_room_id = data['gameRoomID']
+    return game_room_id
+
+
+def parse_room(room):
+    data = json.loads(room)
+    room_id = data['room_id']
+    return room_id
+    return None
+
+
+def parse_status_state(status):
+
+    return None

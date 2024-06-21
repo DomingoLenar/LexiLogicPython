@@ -1,6 +1,6 @@
 import org__POA
-from update_dispatcher import UpdateDispatcher
 import org
+from update_dispatcher import UpdateDispatcher
 
 
 class PlayerCallbackImpl(org__POA.amalgam.UIControllers.PlayerCallback):

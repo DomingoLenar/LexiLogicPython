@@ -1,7 +1,3 @@
-from abc import ABC, abstractmethod
-
-
-class UpdateDispatcher(ABC):
-    @abstractmethod
+class UpdateDispatcher:
     def update(self, json_string):
         pass
