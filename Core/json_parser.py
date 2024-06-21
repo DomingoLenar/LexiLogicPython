@@ -79,5 +79,6 @@ def parse_room(room):
 
 
 def parse_status_state(status):
-
-    return None
+    data = json.loads(status)
+    state = data["state"]
+    return state

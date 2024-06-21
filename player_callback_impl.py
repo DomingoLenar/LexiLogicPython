@@ -5,7 +5,7 @@ from update_dispatcher import UpdateDispatcher
 
 class PlayerCallbackImpl(org__POA.amalgam.UIControllers.PlayerCallback):
     username = ""
-    update_dispatch = UpdateDispatcher
+    update_dispatch = None
 
     def __init__(self): pass
 

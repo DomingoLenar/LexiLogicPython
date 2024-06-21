@@ -27,9 +27,14 @@ def find_match():
             pass
             # back to main menu
         else:
-            print("GAME SUCCESS", status)
-            print("START GAME RESPONSE", RESPONSE['response'])
-            Game.init_components()
+            break
+
+
+    print("GAME SUCCESS", status)
+    print("START GAME RESPONSE", RESPONSE['response'])
+    game = Game()
+    game.init_components()
+
 
 
 class Game(UpdateDispatcher):
@@ -40,31 +45,31 @@ class Game(UpdateDispatcher):
 
     def update(self, json_string):
         print("GAME UPDATE:", json_string)
-        Game.update_data(json_string)
+        self.update_data(json_string)
 
-    @staticmethod
-    def update_data(json_string):
+    def update_data(self, json_string):
+        print("GAME UPDATE DATA")
         state = json_parser.parse_status_state(json_string)
         room_id = json_parser.parse_room(json_string)
 
         if state == "staging":
-            print("Round ", Game.get_current_round(json_string))
-            letter_box = Game.create_letter_box(json_string)
+            print("Round ", self.get_current_round(json_string))
+            letter_box = self.create_letter_box(json_string)
             if letter_box:
                 for row in letter_box:
                     print(row)
-            Game.set_ready(login.CURRENT_USER['username'], room_id)
+            self.set_ready(login.CURRENT_USER['username'], room_id)
             pass
 
         if state == "game_started":
             word = input("\nEnter a word (5 Letters Or More)\n")
-            Game.submit_word(word, login.CURRENT_USER['username'], Game.game_room_id)
+            self.submit_word(word, login.CURRENT_USER['username'], self.game_room_id)
             # calculated_points = 10
             # print("\nSubmitted word:", word, "\nPoints:", calculated_points)
             pass
 
         if state == "game_done":
-            Game.check_winner(json_string)
+            self.check_winner(json_string)
             pass
 
         if state == "invalid_word":
@@ -73,8 +78,7 @@ class Game(UpdateDispatcher):
 
         pass
 
-    @staticmethod
-    def create_letter_box(json_string):
+    def create_letter_box(self, json_string):
         try:
             data = json.loads(json_string)
             char_matrix = data.get("char_matrix", None)
@@ -86,8 +90,7 @@ class Game(UpdateDispatcher):
             print("Error parsing JSON:", e)
             return None
 
-    @staticmethod
-    def get_current_round(json_string):
+    def get_current_round(self, json_string):
         try:
             data = json.loads(json_string)
             return data.get("current_round", None)
@@ -95,8 +98,7 @@ class Game(UpdateDispatcher):
             print("Error parsing JSON:", e)
             return None
 
-    @staticmethod
-    def get_player_info(json_string):
+    def get_player_info(self, json_string):
         try:
             data = json.loads(json_string)
             players = []
@@ -110,24 +112,30 @@ class Game(UpdateDispatcher):
             print("Error parsing JSON:", e)
             return None
 
-    @staticmethod
-    def submit_word(word, username, game_room_id):
+    def submit_word(self, word, username, game_room_id):
         orb = ORBConnection.orb_connection()
         nce = ORBConnection.get_nce(orb)
         game_service_stub = ORBConnection.get_game_service_stub(nce)
         game_service_stub.verifyWord(word, username, game_room_id)
 
-    @staticmethod
-    def init_components():
+    def init_components(self):
         try:
-            PlayerCallbackImpl.update_dispatch = Game
-            Game.game_room_id = json_parser.parse_game_room(RESPONSE['response'])
+            # PlayerCallbackImpl.update_dispatch = Game
+            login.CURRENT_USER['player_callback_impl'].controller_interface(self)
+            print(login.CURRENT_USER['player_callback_impl'].username)
+            print(login.CURRENT_USER['player_callback_impl'])
+            self.game_room_id = json_parser.parse_game_room(RESPONSE['response'])
             orb = ORBConnection.orb_connection()
             nce = ORBConnection.get_nce(orb)
             game_service_stub = ORBConnection.get_game_service_stub(nce)
-            game_service_stub.readyHandshake(login.CURRENT_USER['username'], Game.game_room_id)
+            game_service_stub.readyHandshake(login.CURRENT_USER['username'], self.game_room_id)
         except Exception as e:
             print(e)
+
+        # maintain main thread on run
+        while True:
+            pass
+
         # # Replace for real logic
         # json_string = ('{"state":"game_started","room_id":0,"current_round":5,"seconds_round_duration":30,'
         #                '"round_done":false,"capacity":2,"char_matrix":[["v","e","f","h","o"],["r","u","t","j","n"],["e",'
@@ -159,16 +167,14 @@ class Game(UpdateDispatcher):
         #     for player_info in sorted_players:
         #         print(f"Username: {player_info['Username']} Points: {player_info['Points']}")
 
-    @staticmethod
-    def set_ready(username, room_id):
+    def set_ready(self, username, room_id):
         orb = ORBConnection.orb_connection()
         nce = ORBConnection.get_nce(orb)
         game_service_stub = ORBConnection.get_game_service_stub(nce)
         game_service_stub.playerReady(username, room_id)
         pass
 
-    @staticmethod
-    def check_winner(json_string):
+    def check_winner(self, json_string):
         data = json.loads(json_string)
         winner = data["winner"]
         print("Winner", winner)
