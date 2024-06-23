@@ -7,8 +7,7 @@ def get_match_history_data():
     orb = ORBConnection.orb_connection()
     nce = ORBConnection.get_nce(orb)
     player_service_stub = ORBConnection.get_player_service_stub(nce)
-    match_history_list = json_parser.parse_match_history_json_string(
-        player_service_stub.getGameHistory(login.CURRENT_USER['username']))
+    match_history_list = json_parser.parse_match_history_json_string(player_service_stub.getGameHistory(login.CURRENT_USER['username']))
 
     return match_history_list
 

@@ -29,12 +29,10 @@ def find_match():
         else:
             break
 
-
     print("GAME SUCCESS", status)
     print("START GAME RESPONSE", RESPONSE['response'])
     game = Game()
     game.init_components()
-
 
 
 class Game(UpdateDispatcher):
@@ -58,12 +56,26 @@ class Game(UpdateDispatcher):
             if letter_box:
                 for row in letter_box:
                     print(row)
+            # todo: raises a bug where another player game_started json string isn't returned
+            # countdown = self.get_countdown(json_string)
+            # print("GAME STARTING IN..")
+            # while countdown != 0:
+            #     print(countdown)
+            #     countdown -= 1
+            #     time.sleep(1)
+            #
+            # print("SET PLAYER READY")
             self.set_ready(login.CURRENT_USER['username'], room_id)
             pass
 
         if state == "game_started":
+            print("GAME START")
             word = input("\nEnter a word (5 Letters Or More)\n")
-            self.submit_word(word, login.CURRENT_USER['username'], self.game_room_id)
+            print("SUBMITTING A WORD...")
+            try:
+                self.submit_word(word, login.CURRENT_USER['username'], room_id)
+            except Exception as e:
+                print(e)
             # calculated_points = 10
             # print("\nSubmitted word:", word, "\nPoints:", calculated_points)
             pass
@@ -184,6 +196,18 @@ class Game(UpdateDispatcher):
         else:
             print("DEFEAT")
 
+        pass
+
+    def get_countdown(self, json_string):
+        data = json.loads(json_string)
+        countdown = data['countdown']
+        return int(countdown)
+        pass
+
+    def get_round_duration(self, json_string):
+        data = json.loads(json_string)
+        round_duration = data['seconds_round_duration']
+        return int(round_duration)
         pass
 
 

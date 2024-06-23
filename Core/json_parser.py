@@ -74,8 +74,7 @@ def parse_game_room(game_room):
 def parse_room(room):
     data = json.loads(room)
     room_id = data['room_id']
-    return room_id
-    return None
+    return int(room_id)
 
 
 def parse_status_state(status):
