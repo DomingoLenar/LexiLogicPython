@@ -21,9 +21,6 @@ def index():
             valid = login.login_view()
             if valid:
                 main_menu.main_menu_prompt()
-            break
-        elif user_choice == "2":
-            sys.exit(1)
         else:
             print("Invalid Choice")
             time.sleep(0.3)

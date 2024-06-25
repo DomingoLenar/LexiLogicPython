@@ -27,19 +27,20 @@ def find_match():
             pass
             # back to main menu
         else:
+            print("GAME SUCCESS", status)
+            print("START GAME RESPONSE", RESPONSE['response'])
+            game = Game()
             break
-
-    print("GAME SUCCESS", status)
-    print("START GAME RESPONSE", RESPONSE['response'])
-    game = Game()
-    game.init_components()
 
 
 class Game(UpdateDispatcher):
     game_room_id = None
 
     def __init__(self):
-        pass
+        self.init_components()
+        # maintain the main thread
+        while True:
+            pass
 
     def update(self, json_string):
         print("GAME UPDATE:", json_string)
@@ -145,8 +146,8 @@ class Game(UpdateDispatcher):
             print(e)
 
         # maintain main thread on run
-        while True:
-            pass
+        # while True:
+        #     pass
 
         # # Replace for real logic
         # json_string = ('{"state":"game_started","room_id":0,"current_round":5,"seconds_round_duration":30,'
