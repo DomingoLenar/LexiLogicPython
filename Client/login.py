@@ -1,6 +1,6 @@
 import os
 from public import index as ORBConnection
-import player_callback_impl
+from player_callback_impl import PlayerCallbackImpl
 
 CURRENT_USER = {
     'username': None,
@@ -8,6 +8,8 @@ CURRENT_USER = {
     'player_callback': None,
     'player_callback_impl': None
 }
+
+CALLBACK_IMPL: PlayerCallbackImpl
 
 
 def login_view():
@@ -29,12 +31,15 @@ def login_view():
 
 def authenticate(username: str, password: str):
     global CURRENT_USER
+    global CALLBACK_IMPL
     orb = ORBConnection.orb_connection()
     nce = ORBConnection.get_nce(orb)
     player_service_stub = ORBConnection.get_player_service_stub(nce)
     poa = ORBConnection.get_poa(orb)
-    servant_player_callback = player_callback_impl.PlayerCallbackImpl()
+    servant_player_callback = PlayerCallbackImpl()
     servant_player_callback.username = username
+    CALLBACK_IMPL = servant_player_callback
+
     CURRENT_USER['player_callback_impl'] = servant_player_callback
     CURRENT_USER['player_callback'] = poa.servant_to_reference(servant_player_callback)
     try:

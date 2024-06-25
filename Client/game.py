@@ -1,4 +1,5 @@
 import json
+import os
 import login
 from player_callback_impl import PlayerCallbackImpl
 from public import index as ORBConnection
@@ -134,13 +135,16 @@ class Game(UpdateDispatcher):
         try:
             # PlayerCallbackImpl.update_dispatch = Game
             login.CURRENT_USER['player_callback_impl'].controller_interface(self)
+            login.CALLBACK_IMPL.controller_interface(self)
             print(login.CURRENT_USER['player_callback_impl'].username)
             print(login.CURRENT_USER['player_callback_impl'])
             self.game_room_id = json_parser.parse_game_room(RESPONSE['response'])
             orb = ORBConnection.orb_connection()
             nce = ORBConnection.get_nce(orb)
             game_service_stub = ORBConnection.get_game_service_stub(nce)
+            print("invoking handshake")
             game_service_stub.readyHandshake(login.CURRENT_USER['username'], self.game_room_id)
+            print("Handshake success")
         except Exception as e:
             print(e)
 

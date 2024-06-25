@@ -2,7 +2,7 @@
 
 import os
 
-os.environ['ORBInitRef'] = 'NameService=corbaloc::corbaserver:2121/NameService'
+os.environ['ORBInitRef'] = 'NameService=corbaloc::localhost:2018/NameService'
 import sys
 from omniORB import CORBA
 import CosNaming, PortableServer
