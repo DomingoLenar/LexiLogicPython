@@ -1,5 +1,6 @@
 import os
 import sys
+import login
 from game2 import loader as Loader
 from game2 import user_interface as GameInterface
 import match_history
@@ -19,10 +20,11 @@ def main_menu_prompt():
     choice = input("choice: ")
 
     if choice == "1":
+        game = GameInterface()
+        login.CALLBACK_IMPL.controller_interface(game)
         loader = Loader()
 
         if loader.find_match():
-            game = GameInterface()
             game.run()
 
     elif choice == "2":
