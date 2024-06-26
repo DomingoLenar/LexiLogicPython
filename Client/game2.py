@@ -1,3 +1,4 @@
+import concurrent.futures
 import os
 import threading
 import time
@@ -17,16 +18,19 @@ RESPONSE = {
 class user_interface(UpdateDispatcher):
     response: str
     game_room_id = 0
+    room_id = 0
 
     def __init__(self):
         self.response = ""
 
+    def game_timer(self):
+        for i in range(30,0,-1):
+            time.sleep(1)
+
     def update(self, json_string: str):
         print('update', json_string)
         self.response = json_string
-        print("GAME UPDATE DATA")
         state = json_parser.parse_status_state(json_string)
-        room_id = json_parser.parse_room(json_string)
 
         if state == "staging":
             print("Round ", self.get_current_round(json_string))
@@ -36,17 +40,22 @@ class user_interface(UpdateDispatcher):
                 for row in letter_box:
                     print(row)
 
+            print("5 second Countdown")
+            orb = login.orb
+            nce = ORBConnection.get_nce(orb)
+            game_service_stub = ORBConnection.get_game_service_stub(nce)
+            # self.countdown_timer()
+            time.sleep(5)
+            loader.executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
+            print("Player Sent ready")
+
         if state == "game_started":
-            print("GAME START")
-            word = input("\nEnter a word (5 Letters Or More)\n")
-            print("SUBMITTING A WORD...")
-            try:
-                self.submit_word(word, login.CURRENT_USER['username'], room_id)
-            except Exception as e:
-                print(e)
-            # calculated_points = 10
-            # print("\nSubmitted word:", word, "\nPoints:", calculated_points)
-            pass
+            self.room_id = json_parser.parse_room(json_string)
+            self.input_prompt()
+            # timer_thread = threading.Thread(target=self.input_prompt())
+            # timer_thread.start()
+            # self.game_timer()
+            # timer_thread.join()
 
         if state == "game_done":
             self.check_winner(json_string)
@@ -54,6 +63,7 @@ class user_interface(UpdateDispatcher):
 
         if state == "invalid_word":
             print("INVALID WORD, please try again")
+            self.input_prompt()
             pass
 
     def run(self):
@@ -72,14 +82,8 @@ class user_interface(UpdateDispatcher):
             nce = ORBConnection.get_nce(orb)
             game_service_stub = ORBConnection.get_game_service_stub(nce)
             print("Handshake in progress")
-            # with ThreadPoolExecutor() as executor:
             game_service_stub.readyHandshake(os.environ['username'], self.game_room_id)
-            #     executor.submit(game_service_stub.readyHandshake(os.environ['username'], self.game_room_id))
             print("Handshake success")
-            print("5 second Countdown")
-            time.sleep(5)
-            game_service_stub.playerReady(os.environ['username'], self.game_room_id)
-            print("Player Sent ready")
         except Exception as e:
             print(e)
 
@@ -168,8 +172,23 @@ class user_interface(UpdateDispatcher):
         game_service_stub.verifyWord(word, username, room_id)
         pass
 
+    def input_prompt(self):
+        word = input("\nEnter a word (5 Letters Or More)\n")
+        print("SUBMITTING A WORD...")
+        try:
+            self.submit_word(word, login.CURRENT_USER['username'], self.room_id)
+        except Exception as e:
+            print(e)
+        pass
+
+    def countdown_timer(self):
+        for i in range(5,0,-1):
+            time.sleep(1)
+        pass
+
 
 class loader():
+    executor = concurrent.futures.ThreadPoolExecutor()
     def find_match(self):
         global RESPONSE
         orb = login.orb

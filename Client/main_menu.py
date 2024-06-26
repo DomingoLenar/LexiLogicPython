@@ -27,6 +27,9 @@ def main_menu_prompt():
         if loader.find_match():
             game.run()
 
+        # if loader.executor.submit(loader.find_match()):
+        #     loader.executor.submit(game.run())
+
     elif choice == "2":
         match_history.display_match_history()
     elif choice == "3":
