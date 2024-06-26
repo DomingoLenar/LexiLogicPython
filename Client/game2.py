@@ -26,9 +26,9 @@ class user_interface(UpdateDispatcher):
         self.response = json_string
         print("GAME UPDATE DATA")
         state = json_parser.parse_status_state(json_string)
+        room_id = json_parser.parse_room(json_string)
 
         if state == "staging":
-            # room_id = json_parser.parse_room(json_string)
             print("Round ", self.get_current_round(json_string))
             letter_box = self.create_letter_box(json_string)
 
@@ -159,6 +159,13 @@ class user_interface(UpdateDispatcher):
         except json.JSONDecodeError as e:
             print("Error parsing JSON:", e)
             return None
+        pass
+
+    def submit_word(self, word, username, room_id):
+        orb = login.orb
+        nce = ORBConnection.get_nce(orb)
+        game_service_stub = ORBConnection.get_game_service_stub(nce)
+        game_service_stub.verifyWord(word, username, room_id)
         pass
 
 
