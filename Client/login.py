@@ -6,7 +6,8 @@ CURRENT_USER = {
     'username': None,
     'password': None,
     'player_callback': None,
-    'player_callback_impl': None
+    'player_callback_impl': None,
+    'poa': None
 }
 
 CALLBACK_IMPL: PlayerCallbackImpl
@@ -35,13 +36,13 @@ def authenticate(username: str, password: str):
     orb = ORBConnection.orb_connection()
     nce = ORBConnection.get_nce(orb)
     player_service_stub = ORBConnection.get_player_service_stub(nce)
-    poa = ORBConnection.get_poa(orb)
+    CURRENT_USER['poa'] = ORBConnection.get_poa(orb)
     servant_player_callback = PlayerCallbackImpl()
     servant_player_callback.username = username
     CALLBACK_IMPL = servant_player_callback
 
     CURRENT_USER['player_callback_impl'] = servant_player_callback
-    CURRENT_USER['player_callback'] = poa.servant_to_reference(servant_player_callback)
+    CURRENT_USER['player_callback'] = CURRENT_USER['poa'].servant_to_reference(servant_player_callback)
     try:
         player_service_stub.login(CURRENT_USER['player_callback'], password)
     except Exception as e:

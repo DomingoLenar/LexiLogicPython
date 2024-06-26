@@ -1,9 +1,11 @@
 import os
 import sys
-import game
 import match_history
 import leaderboards
 import profile
+import game
+import login
+
 
 
 def main_menu_prompt():
@@ -18,7 +20,9 @@ def main_menu_prompt():
     choice = input("choice: ")
 
     if choice == "1":
-        game.find_match()
+        obj_game = game.Game()
+        login.CURRENT_USER['player_callback_impl'].controller_interface(obj_game)
+        obj_game.find_match()
     elif choice == "2":
         match_history.display_match_history()
     elif choice == "3":

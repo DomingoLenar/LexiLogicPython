@@ -11,30 +11,6 @@ RESPONSE = {
 }
 
 
-def find_match():
-    global RESPONSE
-
-    while True:
-        print("FINDING MATCH")
-        orb = ORBConnection.orb_connection()
-        nce = ORBConnection.get_nce(orb)
-        game_service_stub = ORBConnection.get_game_service_stub(nce)
-        RESPONSE['response'] = game_service_stub.matchMake(login.CURRENT_USER['player_callback'])
-
-        status = json_parser.parse_match_making(RESPONSE['response'])
-
-        if status == 'timeout':
-            print("GAME FAILED")
-            pass
-            # back to main menu
-        else:
-            break
-
-    print("GAME SUCCESS", status)
-    print("START GAME RESPONSE", RESPONSE['response'])
-    game = Game()
-    game.init_components()
-
 
 class Game(UpdateDispatcher):
     game_room_id = None
@@ -131,13 +107,26 @@ class Game(UpdateDispatcher):
         game_service_stub = ORBConnection.get_game_service_stub(nce)
         game_service_stub.verifyWord(word, username, game_room_id)
 
+    def find_match(self):
+        global RESPONSE
+        print("FINDING MATCH")
+        orb = ORBConnection.orb_connection()
+        nce = ORBConnection.get_nce(orb)
+        game_service_stub = ORBConnection.get_game_service_stub(nce)
+        RESPONSE['response'] = game_service_stub.matchMake(
+            login.CURRENT_USER['poa'].servant_to_reference(login.CURRENT_USER['player_callback_impl']))
+        status = json_parser.parse_match_making(RESPONSE['response'])
+
+        if status == 'timeout':
+            # back to main menu
+            print("GAME FAILED")
+            return False
+        elif status == 'success':
+            self.init_components()
+            return True
+
     def init_components(self):
         try:
-            # PlayerCallbackImpl.update_dispatch = Game
-            login.CURRENT_USER['player_callback_impl'].controller_interface(self)
-            login.CALLBACK_IMPL.controller_interface(self)
-            print(login.CURRENT_USER['player_callback_impl'].username)
-            print(login.CURRENT_USER['player_callback_impl'])
             self.game_room_id = json_parser.parse_game_room(RESPONSE['response'])
             orb = ORBConnection.orb_connection()
             nce = ORBConnection.get_nce(orb)
@@ -199,7 +188,6 @@ class Game(UpdateDispatcher):
             print("VICTORY")
         else:
             print("DEFEAT")
-
         pass
 
     def get_countdown(self, json_string):
