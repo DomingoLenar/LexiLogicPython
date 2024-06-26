@@ -1,6 +1,7 @@
 import os
 import sys
-import game
+from game2 import loader as Loader
+from game2 import user_interface as GameInterface
 import match_history
 import leaderboards
 import profile
@@ -18,7 +19,12 @@ def main_menu_prompt():
     choice = input("choice: ")
 
     if choice == "1":
-        game.find_match()
+        loader = Loader()
+
+        if loader.find_match():
+            game = GameInterface()
+            game.run()
+
     elif choice == "2":
         match_history.display_match_history()
     elif choice == "3":

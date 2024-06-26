@@ -11,6 +11,7 @@ CURRENT_USER = {
 
 CALLBACK_IMPL: PlayerCallbackImpl
 
+orb: None
 
 def login_view():
     global CURRENT_USER
@@ -32,6 +33,7 @@ def login_view():
 def authenticate(username: str, password: str):
     global CURRENT_USER
     global CALLBACK_IMPL
+    global orb
     orb = ORBConnection.orb_connection()
     nce = ORBConnection.get_nce(orb)
     player_service_stub = ORBConnection.get_player_service_stub(nce)
