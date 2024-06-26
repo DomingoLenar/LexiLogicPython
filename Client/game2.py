@@ -46,7 +46,8 @@ class user_interface(UpdateDispatcher):
             game_service_stub = ORBConnection.get_game_service_stub(nce)
             # self.countdown_timer()
             time.sleep(5)
-            loader.executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
+            # loader.executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
+            game_service_stub.playerReady(os.environ['username'], self.game_room_id)
             print("Player Sent ready")
 
         if state == "game_started":
@@ -84,6 +85,9 @@ class user_interface(UpdateDispatcher):
             print("Handshake in progress")
             game_service_stub.readyHandshake(os.environ['username'], self.game_room_id)
             print("Handshake success")
+            # time.sleep(5)
+            # game_service_stub.playerReady(os.environ['username'], self.game_room_id)
+
         except Exception as e:
             print(e)
 
