@@ -9,38 +9,26 @@ import CosNaming, PortableServer
 from org.amalgam import Service  # REQUIRED
 
 
-def orb_connection():
-    # Initialize the ORB
-    orb = CORBA.ORB_init(sys.argv, CORBA.ORB_ID)
-    return orb
+class ORBConnection:
+    player_service_stub = None
+    game_service_stub = None
+    poa = None
 
+    def __init__(self):
+        orb = CORBA.ORB_init(sys.argv, CORBA.ORB_ID)
+        poa_manager = orb.resolve_initial_references("RootPOA")
+        self.poa = poa_manager._narrow(PortableServer.POA)
+        self.poa.the_POAManager.activate()
+        root_nce = orb.resolve_initial_references("NameService")
+        child_nce = root_nce._narrow(CosNaming.NamingContextExt)
+        self.player_service_stub = child_nce.resolve_str("PlayerService")
+        self.game_service_stub = child_nce.resolve_str("GameService")
 
-def get_nce(orb):
-    root_nce = orb.resolve_initial_references("NameService")
-    child_nce = root_nce._narrow(CosNaming.NamingContextExt)
-    return child_nce
-
-
-def get_player_service_stub(nce):
-    player_service_stub = nce.resolve_str("PlayerService")
-    return player_service_stub
-
-
-def get_game_service_stub(nce):
-    game_service_stub = nce.resolve_str("GameService")
-    return game_service_stub
-
-
-def get_poa(orb):
-    poa_manager = orb.resolve_initial_references("RootPOA")
-    poa = poa_manager._narrow(PortableServer.POA)
-    poa.the_POAManager.activate()
-    return poa
+    pass
 
 
 if __name__ == "__main__":
-    orb = orb_connection()
-    get_poa(orb)
-    nce = get_nce(orb)
-    pss = get_player_service_stub(nce)
-    gss = get_game_service_stub(nce)
+    orb = ORBConnection()
+    print(dir(orb.player_service_stub))
+    print(dir(orb.game_service_stub))
+    pass
