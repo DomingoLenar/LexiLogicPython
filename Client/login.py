@@ -1,5 +1,5 @@
 import os
-from public import index as ORBConnection
+from public.index import ORBConnection
 from player_callback_impl import PlayerCallbackImpl
 
 CURRENT_USER = {
@@ -9,9 +9,7 @@ CURRENT_USER = {
     'player_callback_impl': None
 }
 
-CALLBACK_IMPL: PlayerCallbackImpl
-
-orb: None
+orb: ORBConnection = ORBConnection()
 
 def login_view():
     global CURRENT_USER
@@ -32,20 +30,15 @@ def login_view():
 
 def authenticate(username: str, password: str):
     global CURRENT_USER
-    global CALLBACK_IMPL
     global orb
-    orb = ORBConnection.orb_connection()
-    nce = ORBConnection.get_nce(orb)
-    player_service_stub = ORBConnection.get_player_service_stub(nce)
-    poa = ORBConnection.get_poa(orb)
+    print(dir(orb.game_service_stub))
+    print(dir(orb.player_service_stub))
     servant_player_callback = PlayerCallbackImpl()
     servant_player_callback.username = username
-    CALLBACK_IMPL = servant_player_callback
-
     CURRENT_USER['player_callback_impl'] = servant_player_callback
-    CURRENT_USER['player_callback'] = poa.servant_to_reference(servant_player_callback)
+    CURRENT_USER['player_callback'] = orb.poa.servant_to_reference(servant_player_callback)
     try:
-        player_service_stub.login(CURRENT_USER['player_callback'], password)
+        orb.player_service_stub.login(CURRENT_USER['player_callback'], password)
     except Exception as e:
         print(e)
     else:
