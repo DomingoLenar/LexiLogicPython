@@ -21,7 +21,7 @@ def main_menu_prompt():
 
     if choice == "1":
         game = GameInterface()
-        login.CALLBACK_IMPL.controller_interface(game)
+        login.CURRENT_USER['player_callback_impl'].controller_interface(game)
         loader = Loader()
 
         if loader.find_match():

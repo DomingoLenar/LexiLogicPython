@@ -24,8 +24,10 @@ class user_interface(UpdateDispatcher):
         self.response = ""
 
     def game_timer(self):
-        for i in range(30,0,-1):
+        for i in range(30, 0, -1):
+            print(f"time{i}")
             time.sleep(1)
+        print("Time's up!")
 
     def update(self, json_string: str):
         print('update', json_string)
@@ -41,22 +43,19 @@ class user_interface(UpdateDispatcher):
                     print(row)
 
             print("5 second Countdown")
-            orb = login.orb
-            nce = ORBConnection.get_nce(orb)
-            game_service_stub = ORBConnection.get_game_service_stub(nce)
             # self.countdown_timer()
             time.sleep(5)
             # loader.executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
-            game_service_stub.playerReady(os.environ['username'], self.game_room_id)
+            login.orb.game_service_stub.playerReady(os.environ['username'], self.game_room_id)
             print("Player Sent ready")
 
         if state == "game_started":
             self.room_id = json_parser.parse_room(json_string)
-            self.input_prompt()
-            # timer_thread = threading.Thread(target=self.input_prompt())
-            # timer_thread.start()
-            # self.game_timer()
-            # timer_thread.join()
+            timer_thread = threading.Thread(target=self.game_timer)
+            timer_thread.start()
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
+            timer_thread.join()
 
         if state == "game_done":
             self.check_winner(json_string)
@@ -64,7 +63,8 @@ class user_interface(UpdateDispatcher):
 
         if state == "invalid_word":
             print("INVALID WORD, please try again")
-            self.input_prompt()
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
             pass
 
     def run(self):
@@ -79,11 +79,8 @@ class user_interface(UpdateDispatcher):
         global RESPONSE
         try:
             self.game_room_id = json_parser.parse_game_room(RESPONSE['response'])
-            orb = login.orb
-            nce = ORBConnection.get_nce(orb)
-            game_service_stub = ORBConnection.get_game_service_stub(nce)
             print("Handshake in progress")
-            game_service_stub.readyHandshake(os.environ['username'], self.game_room_id)
+            login.orb.game_service_stub.readyHandshake(os.environ['username'], self.game_room_id)
             print("Handshake success")
             # time.sleep(5)
             # game_service_stub.playerReady(os.environ['username'], self.game_room_id)
@@ -170,10 +167,7 @@ class user_interface(UpdateDispatcher):
         pass
 
     def submit_word(self, word, username, room_id):
-        orb = login.orb
-        nce = ORBConnection.get_nce(orb)
-        game_service_stub = ORBConnection.get_game_service_stub(nce)
-        game_service_stub.verifyWord(word, username, room_id)
+        login.orb.game_service_stub.verifyWord(word, username, room_id)
         pass
 
     def input_prompt(self):
@@ -186,20 +180,16 @@ class user_interface(UpdateDispatcher):
         pass
 
     def countdown_timer(self):
-        for i in range(5,0,-1):
+        for i in range(5, 0, -1):
             time.sleep(1)
         pass
 
 
 class loader():
-    executor = concurrent.futures.ThreadPoolExecutor()
     def find_match(self):
         global RESPONSE
-        orb = login.orb
-        nce = ORBConnection.get_nce(orb)
-        poa = ORBConnection.get_poa(orb)
-        game_service_stub = ORBConnection.get_game_service_stub(nce)
-        RESPONSE['response'] = game_service_stub.matchMake(poa.servant_to_reference(login.CALLBACK_IMPL))
+        RESPONSE['response'] = login.orb.game_service_stub.matchMake(
+            login.orb.poa.servant_to_reference(login.CURRENT_USER['player_callback_impl']))
 
         status = self.parse_match_making(RESPONSE['response'])
 
