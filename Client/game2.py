@@ -25,7 +25,6 @@ class user_interface(UpdateDispatcher):
 
     def game_timer(self):
         for i in range(30, 0, -1):
-            print(f"time{i}")
             time.sleep(1)
         print("Time's up!")
 
@@ -43,9 +42,7 @@ class user_interface(UpdateDispatcher):
                     print(row)
 
             print("5 second Countdown")
-            # self.countdown_timer()
             time.sleep(5)
-            # loader.executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
             login.orb.game_service_stub.playerReady(os.environ['username'], self.game_room_id)
             print("Player Sent ready")
 
@@ -56,6 +53,9 @@ class user_interface(UpdateDispatcher):
             input_thread = threading.Thread(target=self.input_prompt)
             input_thread.start()
             timer_thread.join()
+
+        if state == "game_room":
+            print("game room state")
 
         if state == "game_done":
             self.check_winner(json_string)
@@ -182,6 +182,17 @@ class user_interface(UpdateDispatcher):
     def countdown_timer(self):
         for i in range(5, 0, -1):
             time.sleep(1)
+        pass
+
+    def check_winner(self, json_string):
+        data = json.loads(json_string)
+        winner = data["winner"]
+        print("Winner", winner)
+
+        if login.CURRENT_USER['username'] == winner:
+            print("VICTORY")
+        else:
+            print("DEFEAT")
         pass
 
 
