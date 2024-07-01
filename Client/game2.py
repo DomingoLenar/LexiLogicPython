@@ -83,62 +83,6 @@ class user_interface(UpdateDispatcher):
         except Exception as e:
             print(e)
 
-    # def update_data(self, json_string):
-    #     print("GAME UPDATE DATA")
-    #     state = json_parser.parse_status_state(json_string)
-    #     room_id = json_parser.parse_room(json_string)
-    #
-    #     if state == "staging":
-    #         print("Round ", self.get_current_round(json_string))
-    #         letter_box = self.create_letter_box(json_string)
-    #         if letter_box:
-    #             for row in letter_box:
-    #                 print(row)
-    #
-    #         print("5 second Countdown")
-    #         time.sleep(5)
-    #         orb = login.orb
-    #         nce = ORBConnection.get_nce(orb)
-    #         game_service_stub = ORBConnection.get_game_service_stub(nce)
-    #         # Perform playerReady in a separate thread
-    #         with ThreadPoolExecutor() as executor:
-    #             executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
-    #         # print("5 second Countdown")
-    #         # time.sleep(5)
-    #         # orb = login.orb
-    #         # nce = ORBConnection.get_nce(orb)
-    #         # game_service_stub = ORBConnection.get_game_service_stub(nce)
-    #         #
-    #         # pool = ThreadPoolExecutor(max_workers=2)
-    #         # print("SUBMITTING THREAD")
-    #         # pool.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
-    #         # print("PLAYER READY")
-    #         # Create a ThreadPoolExecutor with 5 threads
-    #         # with ThreadPoolExecutor(max_workers=5) as executor:
-    #         #     executor.submit(game_service_stub.playerReady(os.environ['username'], self.game_room_id))
-    #
-    #     if state == "game_started":
-    #         print("GAME START")
-    #         word = input("\nEnter a word (5 Letters Or More)\n")
-    #         print("SUBMITTING A WORD...")
-    #         try:
-    #             self.submit_word(word, login.CURRENT_USER['username'], room_id)
-    #         except Exception as e:
-    #             print(e)
-    #         # calculated_points = 10
-    #         # print("\nSubmitted word:", word, "\nPoints:", calculated_points)
-    #         pass
-    #
-    #     if state == "game_done":
-    #         self.check_winner(json_string)
-    #         pass
-    #
-    #     if state == "invalid_word":
-    #         print("INVALID WORD, please try again")
-    #         pass
-    #
-    #     pass
-
     def get_current_round(self, json_string):
         try:
             data = json.loads(json_string)
