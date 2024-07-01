@@ -18,7 +18,6 @@ RESPONSE = {
 class user_interface(UpdateDispatcher):
     response: str
     game_room_id = 0
-    room_id = 0
 
     def __init__(self):
         self.response = ""
@@ -48,7 +47,6 @@ class user_interface(UpdateDispatcher):
             print("Player Sent ready")
 
         if state == "game_started":
-            self.room_id = json_parser.parse_room(json_string)
             timer_thread = threading.Thread(target=self.game_timer)
             timer_thread.start()
             input_thread = threading.Thread(target=self.input_prompt)
@@ -171,7 +169,7 @@ class user_interface(UpdateDispatcher):
         word = input("\nEnter a word (5 Letters Or More)\n")
         print("SUBMITTING A WORD...")
         try:
-            self.submit_word(word, login.CURRENT_USER['username'], self.room_id)
+            self.submit_word(word, login.CURRENT_USER['username'], self.game_room_id)
         except Exception as e:
             print(e)
         pass
