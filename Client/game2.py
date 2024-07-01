@@ -24,7 +24,8 @@ class user_interface(UpdateDispatcher):
         self.response = ""
 
     def game_timer(self):
-        for i in range(30, 0, -1):
+        game_time = self.parse_game_time()
+        for i in range(game_time, 0, -1):
             time.sleep(1)
         print("Time's up!")
 
@@ -72,9 +73,6 @@ class user_interface(UpdateDispatcher):
         self.init_components()
         while True:
             pass
-        # while not self.response == 'game_ended':
-        #     pass
-        # print("GAME_ENDED")
 
     def init_components(self):
         global RESPONSE
@@ -83,8 +81,6 @@ class user_interface(UpdateDispatcher):
             print("Handshake in progress")
             login.orb.game_service_stub.readyHandshake(os.environ['username'], self.game_room_id)
             print("Handshake success")
-            # time.sleep(5)
-            # game_service_stub.playerReady(os.environ['username'], self.game_room_id)
 
         except Exception as e:
             print(e)
@@ -194,6 +190,12 @@ class user_interface(UpdateDispatcher):
             print("VICTORY")
         else:
             print("DEFEAT")
+        pass
+
+    def parse_game_time(self):
+        global RESPONSE
+        game_time = json.loads(RESPONSE['gameTime'])
+        return int(game_time)
         pass
 
 
