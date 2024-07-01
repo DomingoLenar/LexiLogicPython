@@ -55,7 +55,8 @@ class user_interface(UpdateDispatcher):
             timer_thread.join()
 
         if state == "game_room":
-            print("game room state")
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
 
         if state == "game_done":
             self.check_winner(json_string)
