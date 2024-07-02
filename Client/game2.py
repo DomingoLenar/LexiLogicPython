@@ -29,6 +29,7 @@ class user_interface(UpdateDispatcher):
         print("Time's up!")
 
     def update(self, json_string: str):
+        global input_thread
         print('update', json_string)
         self.response = json_string
         state = json_parser.parse_status_state(json_string)
@@ -147,6 +148,8 @@ class user_interface(UpdateDispatcher):
         else:
             print("DEFEAT")
         pass
+
+    exit(0)
 
     def parse_game_time(self):
         global RESPONSE
