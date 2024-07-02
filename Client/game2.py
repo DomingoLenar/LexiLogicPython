@@ -59,13 +59,27 @@ class user_interface(UpdateDispatcher):
 
         if state == "game_done":
             self.check_winner(json_string)
-            pass
 
         if state == "invalid_word":
             print("INVALID WORD, please try again")
             input_thread = threading.Thread(target=self.input_prompt)
             input_thread.start()
-            pass
+
+        if state == "self_duplicate":
+            print("You've already entered that word!")
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
+
+        if state == "duped":
+            print("You've ben duped")
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
+
+        if state == "duped_word":
+            print("You have duped someone!")
+            input_thread = threading.Thread(target=self.input_prompt)
+            input_thread.start()
+
 
     def run(self):
         self.init_components()
@@ -136,7 +150,8 @@ class user_interface(UpdateDispatcher):
 
     def parse_game_time(self):
         global RESPONSE
-        game_time = json.loads(RESPONSE['gameTime'])
+        data = json.loads(RESPONSE['response'])
+        game_time = data['gameTime']
         return int(game_time)
         pass
 
