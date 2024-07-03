@@ -1,8 +1,8 @@
 import os
 import sys
 import login
-from game2 import loader as Loader
-from game2 import user_interface as GameInterface
+from game import Game
+from game import Match
 import match_history
 import leaderboards
 import profile
@@ -20,15 +20,12 @@ def main_menu_prompt():
     choice = input("choice: ")
 
     if choice == "1":
-        game = GameInterface()
+        game = Game()
         login.CURRENT_USER['player_callback_impl'].controller_interface(game)
-        loader = Loader()
+        match = Match()
 
-        if loader.find_match():
-            game.run()
-
-        # if loader.executor.submit(loader.find_match()):
-        #     loader.executor.submit(game.run())
+        if match.find_match():
+            game.init_components()
 
     elif choice == "2":
         match_history.display_match_history()

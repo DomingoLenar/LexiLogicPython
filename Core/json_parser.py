@@ -41,30 +41,6 @@ def parse_match_making(match_status):
     return status
 
 
-if __name__ == '__main__':
-    json_string = '{"object":"leaderboard","leaderboard":[{"username":"Lou","pts":1750,"rank":1},{"username":"Lenar","pts":1290,"rank":2},{"username":"Geo","pts":760,"rank":3},{"username":"Mark","pts":760,"rank":3},{"username":"Gebreyl","pts":730,"rank":5},{"username":"Marven","pts":640,"rank":6}]}'
-    # json_string = "{"object":"leaderboard","leaderboard":[{"username":"Lou","pts":1750,"rank":1},{"username":"Lenar","pts":1290,"rank":2},{"username":"Geo","pts":760,"rank":3},{"username":"Mark","pts":760,"rank":3},{"username":"Gebreyl","pts":730,"rank":5},{"username":"Marven","pts":640,"rank":6}]}"
-    data = json.loads(json_string)
-    print(dir(data))
-    # print(dir(LeaderBoard.LeaderBoard))
-    leaderboard_entries = data['leaderboard']
-    print(leaderboard_entries)
-    leaderboard_list = []
-    for idx, entry in enumerate(leaderboard_entries, start=1):
-        leaderboard_item = LeaderBoard.LeaderBoard(
-            leader_board_id=idx,
-            username=entry['username'],
-            points=entry['pts'],
-            rank=entry['rank']
-        )
-        leaderboard_list.append(leaderboard_item)
-
-    for item in leaderboard_list:
-        print(item.get_username(), item.get_points(), item.get_rank())
-    # json.dumps()
-    # parse_json_string()
-
-
 def parse_game_room(game_room):
     data = json.loads(game_room)
     game_room_id = data['gameRoomID']
