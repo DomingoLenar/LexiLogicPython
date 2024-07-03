@@ -148,8 +148,7 @@ class user_interface(UpdateDispatcher):
         else:
             print("DEFEAT")
         pass
-
-    exit(0)
+        exit(0)
 
     def parse_game_time(self):
         global RESPONSE
